@@ -1,4 +1,4 @@
-# React Documentation & Website
+# ui.js Documentation & Website
 
 We use [Jekyll](http://jekyllrb.com/) to build the site using ([mostly](http://zpao.com/posts/adding-line-highlights-to-markdown-code-fences/)) Markdown, and we host it by pushing HTML to [GitHub Pages](http://pages.github.com/).
 
@@ -19,22 +19,22 @@ Otherwise, [RVM](https://rvm.io/) and [rbenv](https://github.com/sstephenson/rbe
 Once you have RubyGems and installed Bundler (via `gem install bundler`), use it to install the dependencies:
 
 ```sh
-$ cd react/docs
+$ cd ui.js/docs
 $ bundle install # Might need sudo.
 $ npm install
 ```
 
 ### Instructions
 
-The site requires React, so first make sure you've built the project (via `grunt`).
+The site requires ui.js, so first make sure you've built the project (via `grunt`).
 
 Use Jekyll to serve the website locally (by default, at `http://localhost:4000`):
 
 ```sh
-$ cd react/docs
+$ cd ui.js/docs
 $ bundle exec rake
 $ bundle exec jekyll serve -w
-$ open http://localhost:4000/react/
+$ open http://localhost:4000/ui.js/
 ```
 
 We use [SASS](http://sass-lang.com/) (with [Bourbon](http://bourbon.io/)) for our CSS, and we use JSX to transform some of our JS.
@@ -42,7 +42,7 @@ If you only want to modify the HTML or Markdown, you do not have to do anything 
 If you want to modify the CSS or JS, use [Rake](http://rake.rubyforge.org/) to compile them:
 
 ```sh
-$ cd react/docs
+$ cd ui.js/docs
 $ bundle exec rake watch # Automatically compiles as needed.
 # bundle exec rake         Manually compile CSS and JS.
 # bundle exec rake js      Manually compile JS, only.
@@ -52,7 +52,7 @@ $ bundle exec rake watch # Automatically compiles as needed.
 
 ### Updating `facebook.github.io/react`
 
-The easiest way to do this is to have a separate clone of this repository, checked out to the `gh-pages` branch. We have a build step that expects this to be in a directory named `react-gh-pages` at the same depth as `react`. Then it's just a matter of running `grunt docs`, which will compile the site and copy it out to this repository. From there, you can check it in.
+The easiest way to do this is to have a separate clone of this repository, checked out to the `gh-pages` branch. We have a build step that expects this to be in a directory named `ui.js-gh-pages` at the same depth as `ui.js`. Then it's just a matter of running `grunt docs`, which will compile the site and copy it out to this repository. From there, you can check it in.
 
 **Note:** This should only be done for new releases. You should create a tag corresponding to the release tag in the main repository.
 
@@ -64,4 +64,4 @@ $ bundle exec rake release
 
 ### Removing the Jekyll / Ruby Dependency
 
-In an ideal world, we would not be adding a Ruby dependency on part of our project. We would like to move towards a point where we are using React to render the website.
+In an ideal world, we would not be adding a Ruby dependency on part of our project. We would like to move towards a point where we are using ui.js to render the website.

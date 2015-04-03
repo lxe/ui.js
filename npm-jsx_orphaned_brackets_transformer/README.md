@@ -1,6 +1,6 @@
 # JSX Orphaned Brackets Transformer
 
-React 0.13 no longer parses orphaned > and } as text.
+ui.js 0.13 no longer parses orphaned > and } as text.
 
 Take this example block:
 
@@ -13,7 +13,7 @@ Take this example block:
 In 0.12 and below, this would be transformed to the following:
 
 ```js
-React.DOM.div(null,
+uijs.DOM.div(null,
   "> }",
 )
 ```

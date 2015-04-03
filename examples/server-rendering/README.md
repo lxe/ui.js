@@ -1,16 +1,16 @@
-# React server rendering example
+# ui.js server rendering example
 
-This example demonstrates how React's server rendering works. Rather than demonstrate a pure-Node solution, this example shows how an app not written in JavaScript (in this case, PHP) can utilize React's server rendering capabilities.
+This example demonstrates how ui.js's server rendering works. Rather than demonstrate a pure-Node solution, this example shows how an app not written in JavaScript (in this case, PHP) can utilize ui.js's server rendering capabilities.
 
 ## Overview
 
-You generally start a React app by doing something like this:
+You generally start a ui.js app by doing something like this:
 
 ```javascript
-React.render(<MyComponent someData={...} />, document.getElementById('someContainer'));
+uijs.render(<MyComponent someData={...} />, document.getElementById('someContainer'));
 ```
 
-The problem is that `someContainer` will be an empty HTML element until the JavaScript downloads and executes. This is bad for page load performance (since the user can't see anything until the JS downloads and executes) and is bad for SEO (since the Googlebot can't see any content). React's server rendering solves this problem -- it lets you fill `someContainer` with *static HTML* on the server and "bring it to life" on the client *without* throwing out and re-creating the HTML.
+The problem is that `someContainer` will be an empty HTML element until the JavaScript downloads and executes. This is bad for page load performance (since the user can't see anything until the JS downloads and executes) and is bad for SEO (since the Googlebot can't see any content). ui.js's server rendering solves this problem -- it lets you fill `someContainer` with *static HTML* on the server and "bring it to life" on the client *without* throwing out and re-creating the HTML.
 
 In order to do this, you need to do a few things. You need to be able to run JavaScript on the server, and you need to be able to bundle that JavaScript code and send it down to the browser. This example provides one architecture, but there are many ways to do it.
 
@@ -23,7 +23,7 @@ Browserify is used to run the same code that Node.js is running inside of the br
 ```
 +-------------+       +------------------+                                              +----------------------+
 |             |       |                  |  ---- HTTP request (module, props JSON) ---> |                      |
-| The browser | <---> | Existing PHP App |                                              | Node.js react server |
+| The browser | <---> | Existing PHP App |                                              | Node.js ui.js server |
 |             |       |                  |  <--- HTTP response (static HTML string) --- |                      |
 +------+------+       +------------------+                                              +----------------------+
        ^                                                                                            ^
@@ -37,8 +37,8 @@ Browserify is used to run the same code that Node.js is running inside of the br
 
 ## How to run the demo
 
-  * `npm install` from `jsapp/` and `reactserver/`.
+  * `npm install` from `jsapp/` and `ui.jsserver/`.
   * Run `browserify` by doing `npm run build` inside `jsapp/`. This will generate a `webapp/static/bundle.js` file.
-  * Run the node server by doing `npm start` inside `reactserver/`.
+  * Run the node server by doing `npm start` inside `ui.jsserver/`.
   * Finally, open `index.php` in your browser (on a webserver running PHP, of course). View-source to see the rendered markup.
-  * Kill the `reactserver` and reload `index.php`. You'll notice that the app still works! View-source and you'll see no rendered markup. React is smart enough to recover if server rendering doesn't work.
+  * Kill the `ui.jsserver` and reload `index.php`. You'll notice that the app still works! View-source and you'll see no rendered markup. ui.js is smart enough to recover if server rendering doesn't work.

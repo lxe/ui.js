@@ -1,6 +1,6 @@
-# react-tools
+# ui.js-tools
 
-This package compliments the usage of [React](http://facebook.github.io/react/). It ships with tools that are often used in conjunction.
+This package compliments the usage of [ui.js](http://facebook.github.io/react/). It ships with tools that are often used in conjunction.
 
 ## JSX
 
@@ -43,9 +43,9 @@ option | values | default
 `stripTypes` | `true`: strips out type annotations | `false`
 
 ```js
-var reactTools = require('react-tools');
+var ui.jsTools = require('ui.js-tools');
 
-reactTools.transform(string, options);
+ui.jsTools.transform(string, options);
 ```
 
 ### `transformWithDetails(inputString, options)`
